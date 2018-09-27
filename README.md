@@ -4,13 +4,13 @@ Detta är ett projekt som ämnar ersätta informationsfoldrarna patienterna får
 
 Följande förbättring kommer projektet att bidra med:
 * Möjlighet för personer med lässvårigheter ska kunna ta till sig informationen.
-* Sidan ska i möjligaste mån följa (”Web Content Accessibility Guidelines 2.0”)[ https://www.w3.org/TR/WCAG20/]
+* Sidan ska i möjligaste mån följa [”Web Content Accessibility Guidelines 2.0”](https://www.w3.org/TR/WCAG20/)
 * Via mallar göra det enkelt för vårdpersonalen att lägga till nya avsnitt eller justera informationen.
 * Interaktiva element på sidan för att lättare föra fram informationen.
 * Personligt anpassad information utifrån patientens diagnos, åtgärd eller situation.
 * Möjlighet att presentera olika språk.
 
-Du hittar demo på: (http://patinfo.tk/)[http://patinfo.tk/]
+Du hittar demo på: [http://patinfo.tk/](http://patinfo.tk/)
 
 ## Varför räcker inte avdelningarnas "externa" sidor?!?
 För att de primärt är till för patienter som ännu inte lagts in på sjukhuset. Även är de oftast opersonliga från vårdavdelningen.
