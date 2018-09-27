@@ -10,6 +10,8 @@ Följande förbättring kommer projektet att bidra med:
 * Personligt anpassad information utifrån patientens diagnos, åtgärd eller situation.
 * Möjlighet att presentera olika språk.
 
+Du hittar demo på: (http://patinfo.tk/)[http://patinfo.tk/]
+
 ## Varför räcker inte avdelningarnas "externa" sidor?!?
 För att de primärt är till för patienter som ännu inte lagts in på sjukhuset. Även är de oftast opersonliga från vårdavdelningen.
 
