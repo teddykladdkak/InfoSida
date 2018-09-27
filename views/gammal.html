@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>InfoSida</title>
+	<link rel="manifest" href="manifest.json">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="yes" name="mobile-web-app-capable" />
+	<meta content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" name="viewport" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+
+	<meta property="og:type" content="website" />
+
+	<style type="text/css">
+		html{
+			background-color: #035988;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-position: top;
+			background-size: 150%;
+			font-family: Helvetica,Arial,sans-serif;
+		}
+		html, body {
+			padding: 0px!important;
+			margin: 0px!important;
+			height: 100%;
+			min-height: 100%;
+		}
+		#wrapper {
+			max-width: 800px;
+			width: 100%;
+			margin: 0px auto;
+		}
+		/*td {
+			vertical-align: top;
+			padding: 10px;
+		}*/
+		.bubbla {
+			width: 90%;
+			margin: 10px auto;
+			border: solid 4px black;
+			background-color: #035988;
+			border-radius: 10px;
+			padding: 10px;
+		}
+		.bubbla p, .bubbla h2 {
+			color: #FFF;
+		}
+		.imgwrapper {
+			text-align: center;
+			padding: 0px;
+		}
+		img {
+			max-width: 100%;
+		}
+		.button, .visible, .imgwrapper {
+			background-color: #FFF;
+			border-radius: 20px;
+		}
+		.visible {
+			padding: 10px 10px;
+		}
+		.button {
+			background-color: #035988;
+			color: #FFF;
+			padding: 20px 10px;
+			margin: 0px;
+			font-size: 2em;
+			text-align: center;
+			background-position: center;
+			background-size: cover;
+			cursor: pointer;
+			-webkit-transition: all 200ms linear;
+		    -moz-transition: all 200ms linear;
+		    -o-transition: all 200ms linear;
+		    -ms-transition: all 200ms linear;
+		    transition: all 200ms linear;
+		}
+		.button p {
+			border-radius: 20px;
+			padding: 5px 20px;
+			margin: 0px;
+			display: inline-block;
+			background-color: #035988;
+		}
+		.visible, .hidden {
+			overflow: hidden;
+		}
+		.imgwrapper {
+			background-position: center;
+			background-size: cover;
+		}
+		@keyframes flickerAnimation {
+		  0%   { opacity:1; }
+		  50%  { opacity:0; }
+		  100% { opacity:1; }
+		}
+		@-o-keyframes flickerAnimation{
+		  0%   { opacity:1; }
+		  50%  { opacity:0; }
+		  100% { opacity:1; }
+		}
+		@-moz-keyframes flickerAnimation{
+		  0%   { opacity:1; }
+		  50%  { opacity:0; }
+		  100% { opacity:1; }
+		}
+		@-webkit-keyframes flickerAnimation{
+		  0%   { opacity:1; }
+		  50%  { opacity:0; }
+		  100% { opacity:1; }
+		}
+		.imgwrapper img {
+		   -webkit-animation: flickerAnimation 5s infinite;
+		   -moz-animation: flickerAnimation 5s infinite;
+		   -o-animation: flickerAnimation 5s infinite;
+		    animation: flickerAnimation 5s infinite;
+		}
+		.visible {
+			visibility: visible;
+			opacity: 1;
+			transition: opacity 0.1s linear;
+		}
+		.hidden {
+			max-height: 0px;
+			visibility: hidden;
+			opacity: 0;
+			transition: visibility 0s 0.1s, opacity 0.1s linear;
+		}
+		.hidden > div {
+			margin-top: -10000px;
+			transition: margin-top 0s 0.1s;
+		}
+		@media screen and (max-width: 600px) {
+			#typiskdag .tr{
+				margin-top: 10px;
+			}
+		}
+		@media screen and (min-width: 600px) {
+			.table {
+				display: table;
+			}
+			.tr {
+				display: table-row;
+			}
+			.td {
+				display: table-cell;
+				width: 50%;
+			}
+		}
+		.show {
+			opacity: 0.5;
+			padding: 0px;
+		}
+		/*.show:hover {
+			opacity: 1;
+		}*/
+		.show p {
+			font-size: 0.5em!important;
+			padding: 0px 20px;
+		}
+		h1 .playico {
+			display: inline-block;
+		}
+		h1 svg {
+			height: 35px;
+			margin-left: 10px;
+		}
+		.hiddentext {
+			display: none;
+		}
+		.closebutton {
+			width: 30px;
+			float: right;
+			cursor: pointer;
+		}
+		.colourmarking .table {
+			width: 100%;
+		}
+		.colourmarking .table .tr {
+			color: #FFF;
+		}
+		.colourmarking .table .tr .td {
+			padding: 5px;
+		}
+		.colourmarking .table .tr:nth-child(odd) {
+			background-color: #5681a2;
+		}
+		.colourmarking .table .tr:nth-child(even) {
+			background-color: #035988;
+		}
+	</style>
+	<script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+	<script src="21.js"></script>
+	<script type="text/javascript">
+		function addmeta(){
+			var titelelm = document.getElementsByTagName('title')[0];
+				removechilds(titelelm);
+				var titeltext = document.createTextNode(test.avdinfo.titel);
+				titelelm.appendChild(titeltext);
+			var head = document.getElementsByTagName('head')[0];
+				var title = document.createElement('meta');
+					title.setAttribute('property', 'og:title');
+					title.setAttribute('content', test.avdinfo.titel);
+				head.appendChild(title);
+				var description = document.createElement('meta');
+					description.setAttribute('property', 'og:description');
+					description.setAttribute('content', test.avdinfo.info);
+				head.appendChild(description);
+				var insertimg = document.createElement('meta');
+					insertimg.setAttribute('property', 'og:image');
+					insertimg.setAttribute('content', config.url.ico + test.avdinfo.avdid + '/icon.jpg');
+				head.appendChild(insertimg);
+				var todo = [
+					[{
+						"tagg": "rel",
+						"data": "shortcut icon"
+					},{
+						"tagg": "href",
+						"data": config.url.ico + test.avdinfo.avdid + "/icon.ico"
+					}],[{
+						"tagg": "icon",
+						"data": "shortcut icon"
+					},{
+						"tagg": "type",
+						"data": "image/vnd.microsoft.icon"
+					},{
+						"tagg": "href",
+						"data": config.url.ico + test.avdinfo.avdid + "/icon.ico"
+					}],[{
+						"tagg": "rel",
+						"data": "icon"
+					},{
+						"tagg": "type",
+						"data": "image/png"
+					},{
+						"tagg": "href",
+						"data": config.url.ico + test.avdinfo.avdid + "/icon196x196.png"
+					}],[{
+						"tagg": "rel",
+						"data": "apple-touch-icon-precomposed"
+					},{
+						"tagg": "href",
+						"data": config.url.ico + test.avdinfo.avdid + "/icon180x180.png"
+					}],[{
+						"tagg": "rel",
+						"data": "apple-touch-icon-precomposed"
+					},{
+						"tagg": "sizes",
+						"data": "76x76"
+					},{
+						"tagg": "href",
+						"data": config.url.ico + test.avdinfo.avdid + "/icon76x76.png"
+					}],[{
+						"tagg": "rel",
+						"data": "apple-touch-icon-precomposed"
+					},{
+						"tagg": "sizes",
+						"data": "120x120"
+					},{
+						"tagg": "href",
+						"data": config.url.ico + test.avdinfo.avdid + "/icon120x120.png"
+					}],[{
+						"tagg": "rel",
+						"data": "apple-touch-icon-precomposed"
+					},{
+						"tagg": "sizes",
+						"data": "152x152"
+					},{
+						"tagg": "href",
+						"data": config.url.ico + test.avdinfo.avdid + "/icon152x152.png"
+					}]
+				];
+				for (var i = todo.length - 1; i >= 0; i--) {
+					var link = document.createElement('link');
+					for (var a = todo[i].length - 1; a >= 0; a--) {
+						link.setAttribute(todo[i][a].tagg, todo[i][a].data);
+					};
+					head.appendChild(link);
+				};
+		};
+		function showhide(id){
+			var element = document.getElementById(id + 'button');
+				element.setAttribute('style', 'background-image: url(' + element.getAttribute('data-aktiv') + ')');
+			var wrapper = document.getElementById(id);
+			if(wrapper.getAttribute('class') == 'hidden'){
+				wrapper.setAttribute('class', 'visible');
+				element.setAttribute('class', 'button show');
+			}else{
+				wrapper.setAttribute('class', 'hidden');
+				element.setAttribute('class', 'button');
+			};
+			setTimeout(function(){
+				element.removeAttribute('style');
+			}, 400);
+		};
+		function removecolour(element){
+			element.removeAttribute('style');
+		};
+		function makecolour(element){
+			element.setAttribute('style', 'background-image: url(' + element.getAttribute('data-aktiv') + ')');
+		};
+		function changecontrast(element){
+			if(!element.checked){
+				var styleelem = document.getElementById('highcontraststyle');
+				if(!styleelem){}else{
+					styleelem.parentNode.removeChild(styleelem);
+				};
+				localStorage.removeItem('infosida-highcontrast');
+			}else{
+				var body = document.getElementsByTagName('head')[0];
+				var style = document.createElement('style');
+					style.setAttribute('id', 'highcontraststyle');
+					style.setAttribute('type', 'text/css');
+					var code = document.createTextNode('html, .visible, .hidden, .button p, .bubbla {background-color: #000!important; color: #FFF!important; } html, .visible, .hidden, .button { background-image: none!important; } .button { border: solid 2px white!important; } table, td, tr { border-color: white!important; } ');
+					style.appendChild(code);
+				body.appendChild(style);
+				localStorage.setItem('infosida-highcontrast', 'true');
+			};
+		};
+		function changedyslexi(element){
+			if(!element.checked){
+				var styleelem = document.getElementById('dyslexistyle');
+				if(!styleelem){}else{
+					styleelem.parentNode.removeChild(styleelem);
+				};
+				localStorage.removeItem('infosida-dyslexi');
+			}else{
+				var body = document.getElementsByTagName('head')[0];
+				var style = document.createElement('style');
+					style.setAttribute('id', 'dyslexistyle');
+					style.setAttribute('type', 'text/css');
+					var code = document.createTextNode('html, h1, h2, h3, p { font-family: \'dyslexieregular\'!important; }');
+					style.appendChild(code);
+				body.appendChild(style);
+				localStorage.setItem('infosida-dyslexi', 'true');
+			};
+		};
+		function talk(element){
+			responsiveVoice.cancel();
+			finichtalk();
+			var text = element.parentElement.parentElement.textContent.replace(/00/g, '').replace(/-/g, '').replace(/:/g, ' ').replace(/\n/g, ' ');
+			console.log(text);
+			element.setAttribute('onclick', 'stoptalk(this);');
+			removechilds(element);
+			element.appendChild(document.createTextNode(' '));
+			element.appendChild(makeSVG("0 0 512 512", "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm96 328c0 8.8-7.2 16-16 16H176c-8.8 0-16-7.2-16-16V176c0-8.8 7.2-16 16-16h160c8.8 0 16 7.2 16 16v160z"));
+			responsiveVoice.speak(text, 'Swedish Female', {onend: finichtalk});
+		};
+		function stoptalk(element, todo){
+			element.setAttribute('onclick', 'talk(this);');
+			removechilds(element);
+			element.appendChild(document.createTextNode(' '));
+			element.appendChild(makeSVG("0 0 512 512", "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm115.7 272l-176 101c-15.8 8.8-35.7-2.5-35.7-21V152c0-18.4 19.8-29.8 35.7-21l176 107c16.4 9.2 16.4 32.9 0 42z"));
+			if(todo == 'true'){
+
+			}else{
+				responsiveVoice.cancel();
+			};
+		};
+		function finichtalk(){
+			var allicons = document.getElementsByClassName('playico');
+			for (var i = allicons.length - 1; i >= 0; i--) {
+				stoptalk(allicons[i], 'true');
+			};
+		};
+		function makeSVG(viewbox, d){
+			var svg = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
+				svg.setAttribute('aria-hidden', 'true');
+				svg.setAttribute('class', 'svg');
+				svg.setAttribute('role', 'img');
+				svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+				svg.setAttribute('viewBox', viewbox);
+				var path = document.createElementNS("http://www.w3.org/2000/svg", 'path');
+					path.setAttribute('fill', 'currentColor');
+					path.setAttribute('d', d);
+				svg.appendChild(path);
+			return svg;
+		};
+		function removechilds(parent){
+			if(parent.hasChildNodes()){
+				while (parent.hasChildNodes()) {
+					parent.removeChild(parent.firstChild);
+				};
+			};
+		};
+		function addvoice(element){
+			if(!element.checked){
+				var allsvg = document.getElementsByClassName('playico');
+				for (var i = allsvg.length - 1; i >= 0; i--) {
+					allsvg[i].parentElement.removeChild(allsvg[i]);
+				};
+				localStorage.removeItem('infosida-voice');
+			}else{
+				var allelem = ['hidden', 'visible'];
+				for (var i = allelem.length - 1; i >= 0; i--) {
+					var wrapper = document.getElementsByClassName(allelem[i]);
+					for (var a = wrapper.length - 1; a >= 0; a--) {
+						var head = wrapper[a].getElementsByTagName('h1')[0];
+							var span = document.createElement('div');
+								span.setAttribute('class', 'playico');
+								span.setAttribute('onclick', 'talk(this);');
+								span.appendChild(makeSVG('0 0 512 512', 'M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm115.7 272l-176 101c-15.8 8.8-35.7-2.5-35.7-21V152c0-18.4 19.8-29.8 35.7-21l176 107c16.4 9.2 16.4 32.9 0 42z'));
+							head.appendChild(span);
+					};
+				};
+				localStorage.setItem('infosida-voice', 'true');
+			};
+		};
+		function showall(element){
+			var buttons = document.getElementsByClassName('button');
+			if(!element.checked){
+				var allelem = document.getElementsByClassName('visible');
+				for (var i = allelem.length - 1; i >= 0; i--) {
+					allelem[i].setAttribute('class', 'hidden');
+				};
+				for (var i = buttons.length - 1; i >= 0; i--) {
+					buttons[i].setAttribute('class', 'button');
+				};
+				localStorage.removeItem('infosida-showall');
+				document.getElementsByClassName('button')[0].click();
+			}else{
+				var allelem = document.getElementsByClassName('hidden');
+				for (var i = allelem.length - 1; i >= 0; i--) {
+					allelem[i].setAttribute('class', 'visible');
+				};
+				for (var i = buttons.length - 1; i >= 0; i--) {
+					buttons[i].setAttribute('class', 'button show');
+				};
+				localStorage.setItem('infosida-showall', 'true');
+			};
+		};
+		function numtotext(num){
+			var numsplit = num.split('');
+			var text = ['noll', 'ett', 'tva', 'tre', 'fyra', 'fem', 'sex', 'sju', 'atta', 'nio'];
+			var returntext = '';
+			for (var i = numsplit.length - 1; i >= 0; i--) {
+				returntext = numsplit[i] + returntext;
+			};
+			return returntext;
+		};
+		function makeid(namn){return namn.replace(/\s/g,'').replace( /\W/g , '').toLowerCase();};
+		function load(){
+			addmeta();
+			var head = document.getElementsByTagName('head')[0];
+				var style = document.createElement('style');
+					style.setAttribute('type', 'text/css');
+					var code = document.createTextNode('html { background-image: url(' + config.url.bilder + test.avdinfo.avdid + '/bg.svg); } .imgwrapper { background-image: url(' + config.url.bilder + test.avdinfo.avdid + '/karta1.png); }');
+					style.appendChild(code);
+				head.appendChild(style);
+			build();
+			for (var i = config.intallningar.innehall.length - 1; i >= 0; i--) {
+				if(!localStorage.getItem('infosida-' + config.intallningar.innehall[i].id)){}else{
+					document.getElementById(config.intallningar.innehall[i].id).click();
+				};
+			};
+		};
+		function build(sprak){
+			if(!sprak || sprak == ''){
+				sprak = 'sv';
+			};
+			var wrapper = document.getElementById('wrapper');
+			removechilds(wrapper);
+			var stylecode = '';
+			for (var i = 0; i < test.data.length; i++){
+				var buttonid = makeid(test.data[i].knapp.text[sprak]);
+				stylecode = stylecode + ' #' + buttonid + 'button { background-image: url(' + config.url.bilder + test.avdinfo.avdid + '/' + test.data[i].knapp.img.deaktiv + '); }';
+				var buttonelem = document.createElement('div');
+					if(i == 0){
+						buttonelem.setAttribute('class', 'button show');
+					}else{
+						buttonelem.setAttribute('class', 'button');
+					};
+					buttonelem.setAttribute('id', buttonid + 'button');
+					buttonelem.setAttribute('onmouseover', 'makecolour(this);');
+					buttonelem.setAttribute('onmouseout', 'removecolour(this);');
+					buttonelem.setAttribute('data-deactive', config.url.bilder + test.avdinfo.avdid + '/' + test.data[i].knapp.img.deaktiv);
+					buttonelem.setAttribute('data-aktiv', config.url.bilder + test.avdinfo.avdid + '/' + test.data[i].knapp.img.aktiv);
+					buttonelem.setAttribute('onclick', 'showhide(\'' + buttonid + '\');');
+					var buttonp = document.createElement('p');
+						var buttontext = document.createTextNode(test.data[i].knapp.text[sprak]);
+						buttonp.appendChild(buttontext);
+					buttonelem.appendChild(buttonp);
+				wrapper.appendChild(buttonelem);
+				var infowrapper = document.createElement('div');
+					infowrapper.setAttribute('id', buttonid);
+					if(i == 0){
+						infowrapper.setAttribute('class', 'visible');
+					}else{
+						infowrapper.setAttribute('class', 'hidden');
+					};
+					var closeicon = makeSVG('0 0 512 512', 'M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z');
+						closeicon.setAttribute('class', 'closebutton');
+						closeicon.setAttribute('onclick', 'showhide(\'' + buttonid + '\');');
+					infowrapper.appendChild(closeicon);
+				for (var a = 0; a < test.data[i].innehall.length; a++){
+					if(test.data[i].innehall[a].type == 'time'){
+						infowrapper.appendChild(addtimeline(test.data[i].innehall[a].times, sprak));
+					}else if(test.data[i].innehall[a].type == 'rubrik'){
+						var headelem = document.createElement('h1');
+							var headtext = document.createTextNode(test.data[i].innehall[a][sprak]);
+							headelem.appendChild(headtext);
+						infowrapper.appendChild(headelem);
+					}else if(test.data[i].innehall[a].type == 'normal'){
+						var textelem = document.createElement('p');
+						for (var b = 0; b < test.data[i].innehall[a][sprak].length; b++){
+							var texttext = document.createTextNode(test.data[i].innehall[a][sprak][b]);
+							textelem.appendChild(texttext);
+							if(test.data[i].innehall[a][sprak].length == 1){}else{
+								textelem.appendChild(document.createElement('br'));
+							};
+						};
+						infowrapper.appendChild(textelem);
+					}else if(test.data[i].innehall[a].type == 'installningar'){
+						var installhead = document.createElement('h2');
+							var installheadtext = document.createTextNode(config.intallningar.rubrik[sprak]);
+							installhead.appendChild(installheadtext);
+						infowrapper.appendChild(installhead);
+						for (var b = 0; b < config.intallningar.innehall.length; b++){
+							var checkp = document.createElement('p');
+								var checkbox = document.createElement('input');
+									checkbox.setAttribute('type', 'checkbox');
+									checkbox.setAttribute('id', config.intallningar.innehall[b].id);
+									checkbox.setAttribute('onclick', config.intallningar.innehall[b].onclick);
+								checkp.appendChild(checkbox);
+								var checkboxtext = document.createTextNode(' ' + config.intallningar.innehall[b][sprak]);
+								checkp.appendChild(checkboxtext);
+							infowrapper.appendChild(checkp);
+						};
+					}else if(test.data[i].innehall[a].type == 'table'){
+						var table = document.createElement('div');
+							table.setAttribute('class', 'table');
+							for (var b = 0; b < test.data[i].innehall[a][sprak].length; b++){
+								var tr = document.createElement('div');
+									tr.setAttribute('class', 'tr');
+									for (var c = 0; c < test.data[i].innehall[a][sprak][b].length; c++){
+										var td = document.createElement('div');
+											td.setAttribute('class', 'td');
+											var tdtext = document.createTextNode(test.data[i].innehall[a][sprak][b][c]);
+											td.appendChild(tdtext);
+										tr.appendChild(td);
+									};
+								table.appendChild(tr);
+							};
+						infowrapper.appendChild(table);
+					}else if(test.data[i].innehall[a].type == 'bubbla'){
+						var bubblaelem = document.createElement('div');
+							bubblaelem.setAttribute('class', 'bubbla');
+						for (var b = 0; b < test.data[i].innehall[a].text.length; b++){
+							if(test.data[i].innehall[a].text[b].type == 'rubrik'){
+								var bubblarubrik = document.createElement('h2');
+									var bubblarubriktext = document.createTextNode(test.data[i].innehall[a].text[b][sprak]);
+									bubblarubrik.appendChild(bubblarubriktext);
+								bubblaelem.appendChild(bubblarubrik);
+							}else if(test.data[i].innehall[a].text[b].type == 'normal'){
+								var bubblap = document.createElement('p');
+								for (var c = 0; c < test.data[i].innehall[a].text[b][sprak].length; c++){
+									var bubblatext = document.createTextNode(test.data[i].innehall[a].text[b][sprak][c]);
+										bubblap.appendChild(bubblatext);
+									if(test.data[i].innehall[a].text[b][sprak].length == 1){}else{
+										bubblap.appendChild(document.createElement('br'));
+									};
+								};
+								bubblaelem.appendChild(bubblap);
+							}else{
+								console.log('"' + test.data[i].innehall[a].text[b].type + '" kan inte hanteras i "bubbla".');
+							};
+						};
+						infowrapper.appendChild(bubblaelem);
+					}else if(test.data[i].innehall[a].type == 'lista'){
+						var ul = document.createElement('ul');
+						for (var b = 0; b < test.data[i].innehall[a][sprak].length; b++){
+							var li = document.createElement('li');
+								var lip = document.createElement('p');
+									var liptext = document.createTextNode(test.data[i].innehall[a][sprak][b]);
+									lip.appendChild(liptext);
+								li.appendChild(lip);
+							ul.appendChild(li);
+						};
+						infowrapper.appendChild(ul);
+					}else if(test.data[i].innehall[a].type == 'rutor'){
+						var table = document.createElement('div');
+							table.setAttribute('class', 'table');
+							for (var b = 0; b < test.data[i].innehall[a].rutor.length; b++){
+								var tr = document.createElement('div');
+									tr.setAttribute('class', 'tr');
+									var td = document.createElement('div');
+										td.setAttribute('class', 'td');
+										var head = document.createElement('h2');
+											var headtext = document.createTextNode(test.data[i].innehall[a].rutor[b].rubrik[sprak]);
+											head.appendChild(headtext);
+										td.appendChild(head);
+										var plats = document.createElement('p');
+											var platstext = document.createTextNode(test.data[i].innehall[a].rutor[b].plats[sprak]);
+											plats.appendChild(platstext);
+										td.appendChild(plats);
+										if(!test.data[i].innehall[a].rutor[b].telefon || !test.data[i].innehall[a].rutor[b].telefon[sprak] || test.data[i].innehall[a].rutor[b].telefon[sprak] == ''){}else{
+											var telefon = document.createElement('p');
+												var telefontext = document.createTextNode(test.data[i].innehall[a].rutor[b].telefon[sprak]);
+												telefon.appendChild(telefontext);
+											td.appendChild(telefon);
+										};
+										var oppet = document.createElement('p');
+											for (var c = 0; c < test.data[i].innehall[a].rutor[b].oppet[sprak].length; c++){
+												var oppettext = document.createTextNode(test.data[i].innehall[a].rutor[b].oppet[sprak][c]);
+												oppet.appendChild(oppettext);
+												if(test.data[i].innehall[a].rutor[b].oppet[sprak].length == 0){}else{
+													oppet.appendChild(document.createElement('br'));
+												};
+											};
+										td.appendChild(oppet);
+									tr.appendChild(td);
+									var tdtwo = document.createElement('div');
+										tdtwo.setAttribute('class', 'td');
+										var headtwo = document.createElement('h2');
+											var headtwotext = document.createTextNode(test.data[i].innehall[a].rutor[b + 1].rubrik[sprak]);
+											headtwo.appendChild(headtwotext);
+										tdtwo.appendChild(headtwo);
+										var platstwo = document.createElement('p');
+											var platstwotext = document.createTextNode(test.data[i].innehall[a].rutor[b + 1].plats[sprak]);
+											platstwo.appendChild(platstwotext);
+										tdtwo.appendChild(platstwo);
+										if(!test.data[i].innehall[a].rutor[b + 1].telefon || !test.data[i].innehall[a].rutor[b + 1].telefon[sprak] || test.data[i].innehall[a].rutor[b + 1].telefon[sprak] == ''){}else{
+											var telefontwo = document.createElement('p');
+												var telefontwotext = document.createTextNode(test.data[i].innehall[a].rutor[b + 1].telefon[sprak]);
+												telefontwo.appendChild(telefontwotext);
+											tdtwo.appendChild(telefontwo);
+										};
+										var oppettwo = document.createElement('p');
+											for (var c = 0; c < test.data[i].innehall[a].rutor[b + 1].oppet[sprak].length; c++){
+												var oppettwotext = document.createTextNode(test.data[i].innehall[a].rutor[b + 1].oppet[sprak][c]);
+												oppettwo.appendChild(oppettwotext);
+												if(test.data[i].innehall[a].rutor[b + 1].oppet[sprak].length == 0){}else{
+													oppettwo.appendChild(document.createElement('br'));
+												};
+											};
+										tdtwo.appendChild(oppettwo);
+									tr.appendChild(tdtwo);
+								table.appendChild(tr);
+								b++;
+							};
+						infowrapper.appendChild(table);
+					}else if(test.data[i].innehall[a].type == 'karta'){
+						var kartawrapper = document.createElement('div');
+							kartawrapper.setAttribute('class', 'imgwrapper');
+							var kartaimg = document.createElement('img');
+								kartaimg.setAttribute('src', config.url.bilder + test.avdinfo.avdid + '/karta2.png');
+								kartaimg.setAttribute('class', 'karta');
+							kartawrapper.appendChild(kartaimg);
+						infowrapper.appendChild(kartawrapper);
+					}else{
+						console.log('"' + test.data[i].innehall[a].type + '" stödjs inte.');
+					};
+				};
+				wrapper.appendChild(infowrapper);
+			};
+			var style = document.getElementById('injectstyle');
+				removechilds(style);
+				var code = document.createTextNode(stylecode);
+				style.appendChild(code);
+		};
+		function addtimeline(times, sprak){
+			var tid = ['0000', '0030', '0100', '0130', '0200', '0230', '0300', '0330', '0400', '0430', '0500', '0530', '0600', '0630', '0700', '0730', '0800', '0830', '0900', '0930', '1000', '1030', '1100', '1130', '1200', '1230', '1300', '1330', '1400', '1430', '1500', '1530', '1600', '1630', '1700', '1730', '1800', '1830', '1900', '1930', '2000', '2030', '2100', '2130', '2200', '2230', '2300', '2330'];
+			var timewrapper = document.createElement('div');
+				timewrapper.setAttribute('class', 'colourmarking');
+			var table = document.createElement('table');
+				table.setAttribute('style', "width: 100%; border-collapse: collapse;");
+				var trcolor = document.createElement('tr');
+					trcolor.setAttribute('style', 'height: 30px;');
+				var trtime = document.createElement('tr');
+				for (var a = 0; a < tid.length; a++){
+					var colour = '';
+					for (var i = 0; i < times.length; i++){
+						if(parseInt(times[i].start.replace(':', '')) <= parseInt(tid[a]) && parseInt(tid[a]) < parseInt(times[i].end.replace(':', ''))){
+							var colour = ' background-color: ' + times[i].colour + ';';
+						};
+					};
+					var border = ' border-right: solid 1px #000;';
+					if(isEven(a)){
+						border = '';
+						var number = parseInt(tid[a]) / 100;
+						if(isEven(number)){
+							var tdhour = document.createElement('td');
+								tdhour.setAttribute('colspan', '4');
+								tdhour.setAttribute('style', 'border-left: solid 1px #000;');
+								if(number <= 9){
+									number = '0' + number;
+								};
+								var tdhourtext = document.createTextNode(number);
+								tdhour.appendChild(tdhourtext);
+							trtime.appendChild(tdhour);
+						};
+					};
+					if(a == 0){
+						border = 'border-left: solid 1px #000;';
+					};
+					var td = document.createElement('td');
+						td.setAttribute('style', colour + border + ' border-top: solid 1px #000; border-bottom: solid 1px #000; ');
+						td.setAttribute('data-time', tid[a]);
+					trcolor.appendChild(td);
+				};
+				table.appendChild(trtime);
+				table.appendChild(trcolor);
+				timewrapper.appendChild(table);
+				var listtable = document.createElement('div');
+					listtable.setAttribute('class', 'table');
+					for (var i = 0; i < times.length; i++){
+						var listtr = document.createElement('div');
+							listtr.setAttribute('class', 'tr');
+							var listtdtime = document.createElement('div');
+								listtdtime.setAttribute('class', 'td');
+								var listtdtimetext = document.createTextNode('Kl ' + times[i].start + '-' + times[i].end);
+								listtdtime.appendChild(listtdtimetext);
+							listtr.appendChild(listtdtime);
+							var description = document.createElement('div');
+								description.setAttribute('class', 'td');
+								var descriptiontext = document.createTextNode(times[i][sprak]);
+								description.appendChild(descriptiontext);
+							listtr.appendChild(description);
+						listtable.appendChild(listtr);
+					};
+					timewrapper.appendChild(listtable);
+			return timewrapper;
+		};
+		function isEven(n) {
+			return n == parseFloat(n)? !(n%2) : void 0;
+		};
+	</script>
+	<link rel="stylesheet" type="text/css" href="dyslexie/dyslexie.css">
+	<style type="text/css" id="injectstyle"></style>
+</head>
+<body onload="load();">
+	<div id="wrapper">
+		
+	</div>
+</body>
+</html>

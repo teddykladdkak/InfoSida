@@ -1,0 +1,43 @@
+/*font-family: 'dyslexieitalic';*/
+@font-face {
+	font-family: 'dyslexieitalic';
+	src: url('dyslexie-italic.eot');
+	src: url('dyslexie-italic-ie.eot') format('embedded-opentype'),
+		url('dyslexie-italic.woff') format('woff'),
+		url('dyslexie-italic.ttf') format('truetype');
+	font-weight: normal;
+	font-style: italic;
+}
+/*font-family: 'dyslexiebold_italic';*/
+@font-face {
+	font-family: 'dyslexiebold_italic';
+	src: url('dyslexie-bolditalic.eot');
+	src: url('dyslexie-bolditalic-ie.eot') format('embedded-opentype'),
+		url('dyslexie-bolditalic.woff') format('woff'),
+		url('dyslexie-bolditalic.ttf') format('truetype');
+	font-weight: bold;
+	font-style: italic;
+}
+/*font-family: 'dyslexieregular';*/
+@font-face {
+	font-family: 'dyslexieregular';
+	src: url('dyslexie-regular.eot');
+	src: url('dyslexie-regular-ie.eot') format('embedded-opentype'),
+		url('dyslexie-regular.woff') format('woff'),
+		url('dyslexie-regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+/*font-family: 'dyslexiebold';*/
+@font-face {
+	font-family: 'dyslexiebold';
+	src: url('dyslexie-bold.eot');
+	src: url('dyslexie-bold-ie.eot') format('embedded-opentype'),
+		url('dyslexie-bold.woff') format('woff'),
+		url('dyslexie-bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+/*body{
+	font-family: 'dyslexieregular'!important;
+}*/
