@@ -51,12 +51,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 function makeid(namn){return namn.replace(/\s/g,'').replace( /\W/g , '').toLowerCase();};
 function makestyle(info, options){
-	var code = '';
+	var stylecode = '';
+	var htmlcode = '';
 	for (var i = 0; i < info.data.length; i++){
 		var buttonid = makeid(info.data[i].knapp.text[options.sprak]);
-		code = code + ' #' + buttonid + 'button { background-image: url(assets/' + options.ward + '/img/' + info.data[i].knapp.img.deaktiv + '); }';
+		stylecode = stylecode + ' #preload' + buttonid + ' { background-image: url(assets/' + options.ward + '/img/' + info.data[i].knapp.img.aktiv + '); height: 0px; width: 0px; }' + ' #' + buttonid + 'button { background-image: url(assets/' + options.ward + '/img/' + info.data[i].knapp.img.deaktiv + '); }';
+		htmlcode = htmlcode + '<div id="preload' + buttonid + '"></div>';
 	};
-	return code;
+	return {"stylecode": stylecode, "htmlcode": htmlcode};
 };
 
 app.get('*/manifest.json', function (req, res) {
@@ -69,11 +71,13 @@ app.engine('html', function (filePath, options, callback) {
 	var info = JSON.parse(fs.readFileSync('public/assets/' + options.ward + '/info.json', 'utf8'));
 	var installningararray = [];for (var i = param.installningar.length - 1; i >= 0; i--) {installningararray.push(param.installningar[i].id);};
 	fs.readFile(filePath, function (err, content) {
+		var stylecode = makestyle(info, options);
 		var rendered = content.toString()
 			.replace(/#titel#/g, info.avdinfo.titel)
 			.replace(/#assetlink#/g, 'assets/' + options.ward)
 			.replace(/#information#/g, info.avdinfo.info)
-			.replace('#style#', makestyle(info, options))
+			.replace('#style#', stylecode.stylecode)
+			.replace('#preload#', stylecode.htmlcode)
 			.replace('#content#', buildsite(info, options))
 			.replace('#installningar#', '"' + installningararray.join('", "') + '"')
 			.replace('#voice#', param.voice[options.sprak])
