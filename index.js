@@ -150,11 +150,11 @@ function buildsite(info, options){
 		code = code + '<div id="' + buttonid + '"' + wrappershow + '><svg aria-hidden="true" class="closebutton" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" onclick="showhide(\'' + buttonid + '\');"><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"></path></svg>';
 		for (var a = 0; a < info.data[i].innehall.length; a++){
 			if(info.data[i].innehall[a].type == 'rubrik'){
-				code = code + '<h1>' + info.data[i].innehall[a][sprak] + '</h1>';
+				code = code + '<h1>' + info.data[i].innehall[a][sprak] + '<span class="hiddentext">.</span></h1>';
 			}else if(info.data[i].innehall[a].type == 'normal'){
 				code = code + '<p>' + info.data[i].innehall[a][sprak].join('<br/>') + '</p>';
 			}else if(info.data[i].innehall[a].type == 'installningar'){
-				code = code + '<h2>' + param.text.installningar[sprak] + '</h2>';
+				code = code + '<h2>' + param.text.installningar[sprak] + '<span class="hiddentext">.</span></h2>';
 				for (var b = 0; b < param.installningar.length; b++){
 					code = code + '<p><input type="checkbox" id="' + param.installningar[b].id + '" onclick="' + param.installningar[b].click + '(this);"> ' + param.installningar[b].text[sprak] + '</p>';
 				};
@@ -162,7 +162,7 @@ function buildsite(info, options){
 				code = code + '<div class="bubbla">';
 				for (var b = 0; b < info.data[i].innehall[a].text.length; b++){
 					if(info.data[i].innehall[a].text[b].type == 'rubrik'){
-						code = code + '<h2>' + info.data[i].innehall[a].text[b][sprak] + '</h2>';
+						code = code + '<h2>' + info.data[i].innehall[a].text[b][sprak] + '<span class="hiddentext">.</span></h2>';
 					}else if(info.data[i].innehall[a].text[b].type == 'normal'){
 						code = code + '<p>' + info.data[i].innehall[a].text[b][sprak].join('</p><p>') + '</p>';
 					};
@@ -174,16 +174,16 @@ function buildsite(info, options){
 				code = code + '<div class="table">';
 				for (var b = 0; b < info.data[i].innehall[a].rutor.length; b++){
 					code = code + '<div class="tr">'
-					code = code + '<div class="td"><h2>' + info.data[i].innehall[a].rutor[b].rubrik[sprak] + '</h2><p>' + info.data[i].innehall[a].rutor[b].plats[sprak] + '</p>';
+					code = code + '<div class="td"><h2>' + info.data[i].innehall[a].rutor[b].rubrik[sprak] + '<span class="hiddentext">.</span></h2><p>' + info.data[i].innehall[a].rutor[b].plats[sprak] + '<span class="hiddentext">.</span></p>';
 					if(info.data[i].innehall[a].rutor[b].telefon == ''){}else{
-						code = code + '<p>' + param.text.telefon[sprak] + ' <a href="tel:' + info.data[i].innehall[a].rutor[b].telefon.replace(/ /g, '').replace(/-/g, '') + '">' + info.data[i].innehall[a].rutor[b].telefon + '</a></p>';
+						code = code + '<p>' + param.text.telefon[sprak] + ' <a href="tel:' + info.data[i].innehall[a].rutor[b].telefon.replace(/ /g, '').replace(/-/g, '') + '">' + info.data[i].innehall[a].rutor[b].telefon + '</a><span class="hiddentext">.</span></p>';
 					};
-					code = code + '<p>' + info.data[i].innehall[a].rutor[b].oppet[sprak].join('<br/>') + '</p></div>';
-					code = code + '<div class="td"><h2>' + info.data[i].innehall[a].rutor[b + 1].rubrik[sprak] + '</h2><p>' + info.data[i].innehall[a].rutor[b + 1].plats[sprak] + '</p>';
+					code = code + '<p>' + info.data[i].innehall[a].rutor[b].oppet[sprak].join('<span class="hiddentext">.</span><br/>') + '</p><span class="hiddentext">.</span></div>';
+					code = code + '<div class="td"><h2>' + info.data[i].innehall[a].rutor[b + 1].rubrik[sprak] + '<span class="hiddentext">.</span></h2><p>' + info.data[i].innehall[a].rutor[b + 1].plats[sprak] + '<span class="hiddentext">.</span></p>';
 					if(info.data[i].innehall[a].rutor[b].telefon == ''){}else{
-						code = code + '<p>' + param.text.telefon[sprak] + ' <a href="tel:' + info.data[i].innehall[a].rutor[b + 1].telefon.replace(/ /g, '').replace(/-/g, '') + '">' + info.data[i].innehall[a].rutor[b + 1].telefon + '</a></p>';
+						code = code + '<p>' + param.text.telefon[sprak] + ' <a href="tel:' + info.data[i].innehall[a].rutor[b + 1].telefon.replace(/ /g, '').replace(/-/g, '') + '">' + info.data[i].innehall[a].rutor[b + 1].telefon + '</a><span class="hiddentext">.</span></p>';
 					};
-					code = code + '<p>' + info.data[i].innehall[a].rutor[b + 1].oppet[sprak].join('<br/>') + '</p></div>';
+					code = code + '<p>' + info.data[i].innehall[a].rutor[b + 1].oppet[sprak].join('<span class="hiddentext">.</span><br/>') + '</p><span class="hiddentext">.</span></div>';
 					code = code + '</div>';
 					++b;
 				};

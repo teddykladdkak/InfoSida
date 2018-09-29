@@ -271,8 +271,7 @@
 		function talk(element){
 			responsiveVoice.cancel();
 			finichtalk();
-			var text = element.parentElement.parentElement.textContent.replace(/00/g, '').replace(/-/g, '').replace(/:/g, ' ').replace(/\n/g, ' ');
-			console.log(text);
+			var text = element.parentElement.parentElement.textContent;
 			element.setAttribute('onclick', 'stoptalk(this);');
 			removechilds(element);
 			element.appendChild(document.createTextNode(' '));
