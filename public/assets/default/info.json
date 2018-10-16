@@ -216,6 +216,14 @@
 							{
 								"type": "rubrik",
 								"sv": "Rätt information"
+							},{
+								"type": "normal",
+								"sv": ["Säg till om du är överkänslig eller allergisk mot något.", "Kontakta vårdpersonalen om du har frågor om din vård eller din behandling."]
+							}
+						],[
+							{
+								"type": "img",
+								"link": ""
 							}
 						]
 					]
