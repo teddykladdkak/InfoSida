@@ -73,11 +73,7 @@
 			},{
 				"type": "normal",
 				"sv": [
-					"OBS! Alla tider är cirkatider.",
-					"Personalen är upptagen med överrapportering:",
-					"Kl 06:45-07:30",
-					"Kl 13:00-14:00",
-					"Kl 21:00-22:00"
+					"OBS! Alla tider är cirkatider."
 				]
 			},{
 				"type": "normal",
@@ -103,12 +99,12 @@
 					"deaktiv": "2g.jpg"
 				},
 				"text": {
-					"sv": "Vilka är vi"
+					"sv": "Hur vi arbetar"
 				}
 			},
 			"innehall": [{
 				"type": "rubrik",
-				"sv": "Vilka är vi"
+				"sv": "Hur vi arbetar"
 			},{
 				"type": "normal",
 				"sv": ["Avdelning 21 är en medicinsk akutvårdsavdelning som behandlar mag-, tarm- och leversjukdomar. Vi behandlar patienter både från mottagningen och de som sökt via akuten. Vi har även ett riksuppdrag för våra patienter."]
@@ -200,6 +196,34 @@
 		},{
 			"knapp": {
 				"img": {
+					"aktiv": "4.jpg",
+					"deaktiv": "4g.jpg"
+				},
+				"text": {
+					"sv": "Din säkerhet på sjukhus"
+				}
+			},
+			"innehall": [{
+				"type": "table",
+				"content": [
+					[
+						[
+							{
+								"type": "img",
+								"link": ""
+							}
+						],[
+							{
+								"type": "rubrik",
+								"sv": "Rätt information"
+							}
+						]
+					]
+				]
+			}]
+		},{
+			"knapp": {
+				"img": {
 					"aktiv": "5.jpg",
 					"deaktiv": "5g.jpg"
 				},
@@ -271,7 +295,7 @@
 					}
 				},{
 					"rubrik": {
-						"sv": "Salong Wivi"
+						"sv": "Carl M Lundh (Frisör)"
 					},
 					"plats": {
 						"sv": "(Blå stråket 5, huvudentrén)"
@@ -312,6 +336,9 @@
 			"innehall": [{
 				"type": "rubrik",
 				"sv": "Vid hemgång"
+			},{
+				"type": "normal",
+				"sv": ["Innan du tar dig hem kommer läkare ha ett utskivningssamtal med dig och du kommer få en vård- och läkemedelsberättelse med dig hem."]
 			},{
 				"type": "normal",
 				"sv": ["Vid behov, rådgivning, förnyelse av recept, förlängning av sjukskrivning etc. efter utskrivning, var god kontakta \"Kontaktpunkten\", telefonnummer 031-342 24 00."]

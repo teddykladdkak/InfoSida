@@ -26,7 +26,7 @@ var param = {
 		"id": "dyslexi",
 		"click": "changedyslexi",
 		"text": {
-			"sv": "Dyslexi"
+			"sv": "Lättläst"
 		}
 	},{
 		"id": "voice",
