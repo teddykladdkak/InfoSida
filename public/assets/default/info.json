@@ -196,21 +196,25 @@
 		},{
 			"knapp": {
 				"img": {
-					"aktiv": "4.jpg",
-					"deaktiv": "4g.jpg"
+					"aktiv": "8.jpg",
+					"deaktiv": "8g.jpg"
 				},
 				"text": {
 					"sv": "Din säkerhet på sjukhus"
 				}
 			},
 			"innehall": [{
+				"type": "rubrik",
+				"sv": "Din säkerhet på sjukhus"
+			},{
 				"type": "table",
+				"class": "sakerhet",
 				"content": [
 					[
 						[
 							{
 								"type": "img",
-								"link": ""
+								"link": "assets/default/img/sakerhet/rattinfo1.png"
 							}
 						],[
 							{
@@ -223,11 +227,195 @@
 						],[
 							{
 								"type": "img",
-								"link": ""
+								"link": "assets/default/img/sakerhet/rattinfo2.png"
+							}
+						]
+					],[
+						[
+							{
+								"type": "img",
+								"link": "assets/default/img/sakerhet/dinalkm1.png"
+							}
+						],[
+							{
+								"type": "rubrik",
+								"sv": "Dina läkemedel"
+							},{
+								"type": "normal",
+								"sv": [
+									"Berätta vilka läkemedel du tar och varför.",
+									"Säg till om du inte vet varför du ska ta ett visst läkemedel.",
+									"Tala med en läkare, sjuksköterska eller en apotekare om du har frågor kring dina läkemedel."
+								]
+							}
+						],[
+							{
+								"type": "img",
+								"link": "assets/default/img/sakerhet/dinalkm2.png"
+							}
+						]
+					],[
+						[
+							{
+								"type": "img",
+								"link": "assets/default/img/sakerhet/skyddasmitta1.png"
+							}
+						],[
+							{
+								"type": "rubrik",
+								"sv": "Skydda dig själv och andra mot smitta"
+							},{
+								"type": "normal",
+								"sv": [
+									"Tvätta och sprita dina händer innan du äter.",
+									"Använd endast den toalett som anvisats dig.",
+									"Tvätta och sprita dina händer efter toalettbesök.",
+									"Säg till om du har kräkts eller har diarré.",
+									"Nys eller hosta i armvecket.",
+									"Använd pappersnäsduk när du snyter dig och sprita händerna efteråt.",
+									"Tveka inte att fråga personalen om de har rena händer innan de tar i dig."
+								]
+							}
+						],[
+							{
+								"type": "img",
+								"link": "assets/default/img/sakerhet/skyddasmitta2.png"
+							}
+						]
+					],[
+						[
+							{
+								"type": "img",
+								"link": "assets/default/img/sakerhet/viktigtmat1.png"
+							}
+						],[
+							{
+								"type": "rubrik",
+								"sv": "Den viktiga maten"
+							},{
+								"type": "normal",
+								"sv": [
+									"Be personalen om råd om du äter specialkost.",
+									"Vid sjukdom är det lätt att förlora vikt och muskelmassa.",
+									"Då ökar risken för att ramla och du kan lättare få infektioner.",
+									"Ät mer proteinrik mat. Du kan till exempel be om dubbelt pålägg och äta ägg till frukost.",
+									"Välj feta mjölkprodukter och be om extra smör på smörgåsen.",
+									"Ät ofta och glöm inte mellanmålen.",
+									"En dessert eller en kaka ger lite extra energi."
+								]
+							}
+						],[
+							{
+								"type": "img",
+								"link": "assets/default/img/sakerhet/viktigtmat2.png"
+							}
+						]
+					],[
+						[
+							{
+								"type": "img",
+								"link": "assets/default/img/sakerhet/fallskador1.png"
+							}
+						],[
+							{
+								"type": "rubrik",
+								"sv": "Förebygg fallolyckor"
+							},{
+								"type": "normal",
+								"sv": [
+									"Använd stadiga skor som sitter bra på foten eller anti-halksockor.",
+									"Be personalen om hjälp om du känner dig yr eller ostadig när du ska upp och gå.",
+									"Om du lätt blir yr, sitt en stund på sängkanten, trampa med fötterna och drick lite vatten innan du reser dig."
+								]
+							}
+						],[
+							{
+								"type": "img",
+								"link": "assets/default/img/sakerhet/fallskador2.png"
+							}
+						]
+					],[
+						[
+							{
+								"type": "img",
+								"link": "assets/default/img/sakerhet/blodproppar1.png"
+							}
+						],[
+							{
+								"type": "rubrik",
+								"sv": "Förebygg blodproppar"
+							},{
+								"type": "normal",
+								"sv": [
+									"Rör på dig så ofta du kan.",
+									"Använd stödstrumpor om du har sådana.",
+									"Försök göra enkla ben- och ankelövningar.",
+									"Drick vätska efter personalens rekommendationer."
+								]
+							}
+						],[
+							{
+								"type": "img",
+								"link": "assets/default/img/sakerhet/blodproppar2.png"
+							}
+						]
+					],[
+						[
+							{
+								"type": "img",
+								"link": "assets/default/img/sakerhet/trycksar1.png"
+							}
+						],[
+							{
+								"type": "rubrik",
+								"sv": "Förebygg trycksår"
+							},{
+								"type": "normal",
+								"sv": [
+									"Om du kan, försök att röra dig i sängen och ändra läge ofta.",
+									"Även små lägesändringar gör stor nytta.",
+									"Säg till om du ligger obekvämt eller om det gör ont, till exempel på hälarna.",
+									"Personalen hjälper dig gärna att vända dig i sängen eller ändra läge i stolen."
+								]
+							}
+						],[
+							{
+								"type": "img",
+								"link": "assets/default/img/sakerhet/trycksar2.png"
+							}
+						]
+					],[
+						[
+							{
+								"type": "img",
+								"link": "assets/default/img/sakerhet/hemgang1.png"
+							}
+						],[
+							{
+								"type": "rubrik",
+								"sv": "Dags att lämna sjukhuset"
+							},{
+								"type": "normal",
+								"sv": ["Innan du lämnar sjukhuset se till att du har fått:"]
+							},{
+								"type": "list",
+								"sv": [
+									"din vård- och läkemedelsberättelse",
+									"veta vem du ska kontakta om du har frågor",
+									"information om eventuell uppföljning av din vård och behandling"
+								]
+							}
+						],[
+							{
+								"type": "img",
+								"link": "assets/default/img/sakerhet/hemgang2.png"
 							}
 						]
 					]
 				]
+			},{
+				"type": "normal",
+				"sv": ["Framtaget med tillstånd av Guy´s and St. Thomas NHS Foundation Trust och Region Skåne"]
 			}]
 		},{
 			"knapp": {

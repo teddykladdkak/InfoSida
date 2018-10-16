@@ -215,6 +215,34 @@ function buildsite(info, options){
 				};
 				code = code + firstrow + '</tr>' + secondrow + '</tr></table><div class="table">' + tablecode + '</div>';
 				code = code + '</div>';
+			}else if(info.data[i].innehall[a].type == 'table'){
+				code = code + '<table class="' + info.data[i].innehall[a].class + '">';
+				for (var b = 0; b < info.data[i].innehall[a].content.length; b++){
+					code = code + '<tr>';
+					for (var c = 0; c < info.data[i].innehall[a].content[b].length; c++){
+						code = code + '<td>';
+						for (var d = 0; d < info.data[i].innehall[a].content[b][c].length; d++){
+							if(info.data[i].innehall[a].content[b][c][d].type == 'img'){
+								code = code + '<img src="' + info.data[i].innehall[a].content[b][c][d].link + '"/>';
+							}else if(info.data[i].innehall[a].content[b][c][d].type == 'rubrik'){
+								code = code + '<h2>' + info.data[i].innehall[a].content[b][c][d][sprak] + '</h2>';
+							}else if(info.data[i].innehall[a].content[b][c][d].type == 'normal'){
+								for (var e = 0; e < info.data[i].innehall[a].content[b][c][d][sprak].length; e++){
+									code = code + '<p>' + info.data[i].innehall[a].content[b][c][d][sprak][e] + '</p>';
+								};
+							}else if(info.data[i].innehall[a].content[b][c][d].type == 'list'){
+								code = code + '<ul>';
+								for (var e = 0; e < info.data[i].innehall[a].content[b][c][d][sprak].length; e++){
+									code = code + '<li>' + info.data[i].innehall[a].content[b][c][d][sprak][e] + '</li>';
+								};
+								code = code + '</ul>';
+							};
+						};
+						code = code + '</td>';
+					};
+					code = code + '</tr>';
+				};
+				code = code + '</table>';
 			};
 		};
 		code = code + '</div>';
